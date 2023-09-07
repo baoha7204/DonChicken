@@ -1,0 +1,70 @@
+/* ---Base---*/
+html{
+	font-size: 62.5%;
+}
+
+body{
+    font: 12px/1.55 Arial, Helvetica, sans-serif;
+}
+
+*{
+    font-family: 'Inter', sans-serif;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+}
+
+:root{
+    --black-default: #262626;
+    --main: #666;
+    --second-main: #969696;
+}
+
+a{
+    text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+/* ----Default padding----*/
+header, section, footer {
+    padding: 0 5%;
+}
+/* ----End Default padding----*/
+/* ---End Base---*/
+
+/* ---Header--- */
+header{
+    color: var(--main);
+    background-color: red;
+    width: 100%;
+    z-index: 999;
+}
+
+.header__container{
+    display: flex;
+    height: 8rem;
+    background-color: aqua;
+}
+
+.header-container__logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container__items{
+    display: flex;
+}
+
+.header-container__items .item{
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+/* ---End Header--- */
