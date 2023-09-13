@@ -7,6 +7,8 @@ html {
 
 body {
     font: 1.2rem/1.55 Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-family: 'Open Sans';
 }
 
 * {
@@ -34,6 +36,8 @@ body {
     --animation-dropdown-menu-timing: .5s ease-in-out;
     --dropdown-menu-height: 43px;
     --span-height: 0;
+    /* --Scrollbar-- */
+    --scroll-bar-timing: .2s ease;
 }
 
 a {
@@ -48,7 +52,6 @@ li {
 
 /* ---Header--- */
 header {
-    font-family: 'Open Sans';
     color: var(--second-main);
     width: 100%;
     z-index: 999;
@@ -547,3 +550,108 @@ header {
 }
 /* ----End Responsive---- */
 /* ---End Header--- */
+
+/* ---Scrollbar panel--- */
+.scrollbar{
+    position: fixed;
+    right: -11rem;
+    top: 5%;
+    z-index: 999;
+    height: 90%;
+    transition: var(--scroll-bar-timing);
+}
+
+.scrollbar__container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.scrollbar.active{
+    right: 0;
+}
+
+.scrollbar.active .toggle-button i{
+    transform: rotate(180deg);
+}
+
+.scrollbar-container__toggle-button{
+    left: -4.5rem;
+    position: absolute;
+    transition: var(--scroll-bar-timing);
+    z-index: -1;
+}
+
+.toggle-button{
+    transition: var(--scroll-bar-timing);
+    color: white;
+    cursor: pointer;
+    border-radius: 50% 0 0 50%;
+    width: 5rem;
+    height: 5rem;
+    background-color: darkorange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-button:hover{
+    background-color: #444;
+}
+
+.toggle-button i{
+    line-height: 5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: var(--scroll-bar-timing);
+}
+
+.scrollbar-container__panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: var(--scroll-bar-timing);
+    background-color: #e7e7e7;
+    width: 11rem;
+    padding: .5rem;
+}
+
+.scrollbar-container__panel .panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 1rem;
+    margin: .5rem 0;
+}
+
+.scrollbar-container__panel .panel .panel__item{
+    text-transform: capitalize;
+    color: #000;
+    text-align: center;
+    padding: 2.5rem .3rem;
+}
+
+.scrollbar-container__panel .panel .panel__item:nth-of-type(2){
+    border-top: 1px dashed #ccc;
+}
+
+.scrollbar-container__panel .scroll-to-top{
+    transition: var(--scroll-bar-timing);
+    height: 3.5rem;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.6rem;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+.scrollbar-container__panel .scroll-to-top:hover{
+    background-color: darkorange;
+}
+/* ---End Scrollbar panel--- */

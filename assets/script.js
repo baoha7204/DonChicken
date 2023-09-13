@@ -71,6 +71,21 @@ function scrollingHeader() {
     }
 }
 
+/**
+ * Add click event for scrollbar
+ */
+function addActiveScrollbar() {
+    const scrollbar = $('section.scrollbar');
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('section.scrollbar .toggle-button') && !scrollbar.classList.contains('active')) {
+            scrollbar.classList.add('active');
+        }
+        else if (!e.target.closest('.scrollbar-container__panel')) {
+            scrollbar.classList.remove('active');
+        }
+    });
+}
+
 function myWebApp() {
     // fontAwesome
     insertFontAwesome();
@@ -85,6 +100,8 @@ function myWebApp() {
     }
     // Detect scrolling to turn into sticky header
     scrollingHeader();
+    // Add click event for scrollbar
+    addActiveScrollbar();
 }
 
 myWebApp();
