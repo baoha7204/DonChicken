@@ -42,20 +42,17 @@ function addActiveDropdownToolLogin() {
  * Add active dropdown to header-container__items in mobile
  */
 function addActiveDropdownMobileItems() {
-    window.onresize = () => {
-        if (window.matchMedia("(max-width: 991px)").matches) {
-            const span = $('.header-container__items .dropdown span');
-            let spanHeight = span.offsetHeight;
-
-            let dropdownItems = $$('.header-container__items .dropdown');
-            dropdownItems.forEach((dropdownItem) => {
-                dropdownItem.addEventListener('click', () => {
-                    dropdownItem.classList.toggle('active');
-                });
-                dropdownItem.style.setProperty('--span-height', `${spanHeight}px`);
+    if (window.matchMedia("(max-width: 991px)").matches) {
+        const span = $('.header-container__items .dropdown span');
+        let spanHeight = span.offsetHeight;
+        let dropdownItems = $$('.header-container__items .dropdown');
+        dropdownItems.forEach((dropdownItem) => {
+            dropdownItem.addEventListener('click', () => {
+                dropdownItem.classList.toggle('active');
             });
-        }
-    };
+            dropdownItem.style.setProperty('--span-height', `${spanHeight}px`);
+        });
+    }
 }
 
 /**
@@ -83,6 +80,9 @@ function myWebApp() {
     addActiveDropdownToolLogin();
     // Add active dropdown to header-container__items in mobile
     addActiveDropdownMobileItems();
+    window.onresize = () => {
+        addActiveDropdownMobileItems();
+    }
     // Detect scrolling to turn into sticky header
     scrollingHeader();
 }
