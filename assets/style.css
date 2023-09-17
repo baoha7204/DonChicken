@@ -655,3 +655,197 @@ header {
     background-color: darkorange;
 }
 /* ---End Scrollbar panel--- */
+
+/* ---Offers--- */
+.offers__container{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.offers-container__category{
+    border-color: #e9e9e9;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 2rem 0 1.8rem;
+}
+
+.offers .catergories{
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.catergories .offer-catergory{
+    position: relative;
+}
+
+.offer-catergory .title{
+    text-transform: capitalize;
+    cursor: pointer;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--second-main);
+}
+
+.offer-catergory.active .title{
+    font-weight: bold;
+}
+
+.offer-catergory.active .title::after, .offer-catergory:hover .title::after{
+    background-color: darkorange;
+    position: absolute;
+    bottom: -2rem;
+    content: "";
+    height: .3rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 6rem;
+}
+
+.offer-catergory.active .title, .offer-catergory:hover .title{
+    color: #333333;
+}
+
+.offer-items{
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+}
+
+.offers .offer-items{
+    grid-auto-columns: 20%;
+}
+.offer-item{
+    background-color: #fff;
+    border: 5px solid #fff;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.offer-item:hover{
+    border-color: #e9e9e9;
+}
+.offer-item__image{
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    padding: 2rem;
+    cursor: pointer;
+}
+.offer-item__detail{
+    text-align: center;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+.offer-item__detail .detail__name{
+    font-size: 1.7rem;
+    line-height: normal;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: normal;
+    cursor: pointer;
+}
+.offer-item__detail .detail__name:hover{
+    color: darkorange;
+}
+.offer-item__detail .detail__price{
+    user-select: none;
+}
+.detail__price .price{
+    font-size: 2rem;
+    color: #2d2b2d;
+}
+.offer-item button{
+    position: relative;
+    left: 0;
+    right: 0;
+    top: -75px;
+    margin: auto;
+    color: #ffffff;
+    background-color: darkorange;
+    border: none;
+    width: 90%;
+    height: 5.5rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    font-weight: bold;
+    border-radius: 3.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.offer-item:hover button{
+    top: 0;
+    opacity: 1;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;  
+    opacity: 0;
+    transition: opacity 0.5s linear, width 0.5s linear;
+}
+
+.buttons button {
+    background: transparent;
+    border: 3px solid #FF8C00;
+    color: #FF8C00;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0.4em 0.8em;
+    font-size: 2.5rem;
+    line-height: 1.2rem;
+    z-index: 1;
+}
+
+.buttons button:hover {
+    background-color: #FF8C00;
+    color: #fff;
+}
+
+/*Keep this*/
+.offers .buttons button{
+    color: #a09481;
+    background-color: #f6eada;
+    border-color: #f6eada;
+}
+
+.offers .buttons button:hover{
+    background-color: #FF8C00;
+    color: #fff;
+    border-color: #FF8C00;
+}
+
+.offers__container .buttons {
+    width: 88%;
+    opacity: 1;
+}
+.offer-items{
+    position: relative;
+}
+/* ----Responsive---- */
+@media (min-width: 992px) and (max-width: 1268px){
+
+}
+/* ----End Responsive---- */
+/* ---End Offers--- */

@@ -1,7 +1,88 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-// const footer = $('footer');
 
+// offers data
+const offers_gaNuong = [
+    {
+        id: 1,
+        offer_name: 'Gà Hallamayo không xương (M)',
+        offer_image: './assets/img/offers/hala_kx_5.jpg',
+        offer_price: '185.000'
+    },
+    {
+        id: 2,
+        offer_name: 'Gà nướng cay (M)',
+        offer_image: './assets/img/offers/ganuongcay.jpg',
+        offer_price: '169.000'
+    },
+    {
+        id: 3,
+        offer_name: 'Gà nướng tỏi (M)',
+        offer_image: './assets/img/offers/ganuongtoi.jpg',
+        offer_price: '169.000'
+    },
+    {
+        id: 4,
+        offer_name: 'Cánh gà nướng',
+        offer_image: './assets/img/offers/canhganuong.jpg',
+        offer_price: '159.000'
+    }
+];
+
+const offers_khoaiTayChien = [
+    {
+        id: 1,
+        offer_name: 'Khoai tây chiên',
+        offer_image: './assets/img/offers/khoaitaychien_kovi.jpg',
+        offer_price: '69.000'
+    },
+    {
+        id: 2,
+        offer_name: 'Khoai tây chiên mật ong',
+        offer_image: './assets/img/offers/khoaitaychien_matong_hanh_cari.jpg',
+        offer_price: '79.000'
+    }
+];
+/**
+ * Insert items into the offer list
+ */
+function insertOfferItems(array, section) {
+    const offerItemsHTML = array.map((item) =>{
+        return `<div class="offer-item">
+        <img class="offer-item__image" src="${item.offer_image}" width="270" height="270" alt="${item.offer_name})"></img>
+        <div class="offer-item__detail">
+            <h2 class="detail__name">${item.offer_name}</h2>
+            <div class="detail__price">
+                <span class="price">${item.offer_price}&nbsp;<span class="price__unit">đ</span></span>
+            </div>
+            <button type="submit" title="Thêm vào giỏ hàng"><i class="fa-regular fa-clipboard"></i><span>Thêm vào giỏ hàng</span></button>
+        </div>
+    </div>`;
+    });
+    const offerList = $(section);
+    offerList.innerHTML = offerItemsHTML.join('\n');
+}
+
+function switchOfferItems(){
+    const catergories = $$('li.offer-catergory');
+    const section = '.offers .offer-items';
+    insertOfferItems(offers_gaNuong, section);
+    catergories.forEach((catergory) =>{
+        catergory.addEventListener('click', () =>{
+            catergories.forEach((subCatergory) =>{
+                subCatergory.classList.remove('active');
+            })
+            catergory.classList.add('active');
+            if(catergory.classList.contains('category--gaNuong')){
+                insertOfferItems(offers_gaNuong, section);
+            } else if(catergory.classList.contains('category--khoaiTayChien')){
+                insertOfferItems(offers_khoaiTayChien, section);
+            }
+        });
+    });
+    // Add automatic slide horizontally
+    addAutoSlide('.offers');
+}
 /**
  * Insert fontAwesome
  */
@@ -85,6 +166,31 @@ function addActiveScrollbar() {
         }
     });
 }
+/**
+ * Add automatic slide horizontally to offers
+ */
+function addAutoSlide(section){
+    let slider = $(section + ' .offers-container__items .offer-items');
+    let items = $$(section + ' .offers-container__items .offer-items .offer-item');
+    let next = $(section + ' #next');
+    let prev = $(section + ' #prev');
+    let lengthItems = items.length - 1;
+    let active = 0;
+    next.onclick = function(){
+        active = active + 1 <= lengthItems ? active + 1 : 0;
+        reloadSlider();
+    }
+    prev.onclick = function(){
+        active = active - 1 >= 0 ? active - 1 : lengthItems;
+        reloadSlider();
+    }
+    let refreshInterval = setInterval(()=> {next.click()}, 5000);
+    function reloadSlider(){
+        slider.style.left = -items[active].offsetLeft + 'px';
+        clearInterval(refreshInterval);
+        refreshInterval = setInterval(()=> {next.click()}, 5000);
+    }
+}
 
 function myWebApp() {
     // fontAwesome
@@ -102,6 +208,7 @@ function myWebApp() {
     scrollingHeader();
     // Add click event for scrollbar
     addActiveScrollbar();
+    switchOfferItems();
 }
 
 myWebApp();
