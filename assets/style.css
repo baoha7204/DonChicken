@@ -656,6 +656,108 @@ header {
 }
 /* ---End Scrollbar panel--- */
 
+/* ----Menu----*/
+
+.menu{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.menu-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 45px;
+    flex-direction: column;
+}
+
+.menu-title h2{
+    max-width: 174px;
+    max-height: 27px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-title h2 .line{
+    width: 53px;
+    height: 1.5px;
+    background-color: #E5E5E5;
+    display: inline-block;
+}
+
+.gift-icon{
+    margin: 15px;
+    color: #393939;
+}
+
+.bigtit{
+    text-transform: uppercase;
+    color: #cf0810;
+    font-size: 65px;
+    font-weight: bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.menu-banner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-banner li{
+    width: 40.9%;
+    overflow: hidden;
+}
+
+.menu-banner li a img{
+    display: block;
+    width: 100%;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-banner li:hover img{
+    transform: scale(1.1);
+}
+
+.menu-banner li a{
+    position: relative;
+    display: block;
+}
+
+.menu-banner li a span{
+    width: 100%;
+    text-align: center;
+}
+
+.menu-banner-text{
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40%;
+    z-index: 2;
+    text-transform: uppercase;
+    font-size: 90px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.menu-banner-blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-banner-blur:hover{
+    opacity: 0.2;
+}
+
+/* ----End menu---- */
+
 /* ---Offers--- */
 .offers__container{
     display: flex;
@@ -849,3 +951,219 @@ header {
 }
 /* ----End Responsive---- */
 /* ---End Offers--- */
+
+/* ----Footer---- */
+
+footer{
+    width: 100%;
+    background-color: black;
+}
+
+.footer-rows{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 12.5%;
+}
+
+.footer-container{
+    width: 90%;
+    margin: auto;
+    padding: 50px 0;
+    background-color: black;
+    color: white;
+}
+
+.footer-col h4 a{
+    color: #A66711;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+.footer-col a{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.footer-col{
+    width: 25%;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    padding: 0 15px;
+}
+
+.social-links a{
+    font-size: 20px;
+    display: inline-block;
+    width: 35px;
+    height: 30px;
+}
+
+.footer-col h4, li{
+    margin-bottom: 4px;
+}
+
+.footer-col .not-a{
+    margin-bottom: 15px;
+}
+
+.footer-logo img{
+    width: 300px;
+    height: 80px;
+}
+
+.footer-logo{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 13px;
+    justify-content: space-between;
+}
+
+.footer-copyright{
+    margin-top: 25px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ----End footer---- */
+
+/* ----Responsive menu and footer (320px -> 408px)---- */
+
+@media (min-width: 320px) and (max-width: 408px){
+    .menu-banner{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0 15px;
+    }
+
+    .menu-banner li{
+        width: 100%;
+    }
+
+    .bigtit{
+        font-size: 45px;
+    }
+
+    .menu-banner li a span{
+        bottom: 10%;
+    }
+
+    .footer-rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        width: 100%;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+}
+
+/* ----Responsive menu and footer (409px -> 768px)---- */
+
+@media (min-width: 409px) and (max-width: 768px){
+    .menu-banner{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0 15px;
+    }
+
+    .menu-banner li{
+        width: 100%;
+    }
+
+    .bigtit{
+        font-size: 45px;
+    }
+    
+    .footer-rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        width: 100%;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+}
+
+/* ----Responsive menu and footer (769px -> 798px)---- */
+
+@media (min-width: 769px) and (max-width: 798px){
+    .menu-banner{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 15px;
+    }
+
+    .menu-banner li{
+        width: 100%;
+    }
+
+    .menu-banner li a span{
+        bottom: 20%;
+    }
+
+    .footer-rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 0;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+
+}
+
+/* ----Responsive menu (799px -> 1286px)---- */
+
+@media (min-width: 799px) and (max-width: 1286px){
+    .menu-banner{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 15px;
+    }
+
+    .menu-banner li{
+        width: 100%;
+    }
+}
+
+/* ----Responsive footer (769px -> 991px)---- */
+
+@media (min-width: 769px) and (max-width: 991px){
+    .footer-rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 0;
+        width: 100%;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+
+}
+
+/* ----Responsive footer (992px -> 1286px)---- */
+
+@media (min-width: 992px) and (max-width: 1286px){
+    .footer-rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 8%;
+        width: 100%;
+    }
+
+    .footer-col{
+        width: 100%;
+    }
+}
+
+/* ----End responsive menu and footer---- */
