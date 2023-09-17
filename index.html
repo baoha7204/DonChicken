@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Chicken</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;700&family=Playfair+Display&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="font\fontawesome-free-6.4.2-web\fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -12,8 +17,8 @@
         <div class="scrollbar__container">
             <div class="scrollbar-container__toggle-button">
                 <div class="toggle-button">
-                    <i class="fa-solid fa-angle-left"></i>
-                </div>
+                    <i class="fa-solid fa-angle-left"></i>                                                            
+                </div>    
             </div>
             <div class="scrollbar-container__panel">
                 <a href="#" class="logo">
@@ -101,7 +106,53 @@
         </div>
     </header>
     <section class="banner"></section>
-    <section class="menu"></section>
+    
+    <section class="menu">
+        <div class="menu-title">
+            <h2>
+                <div class="line"></div>
+                <span class="gift-icon"><i class="fa-sharp fa-solid fa-gift"></i></span>
+                <div class="line"></div>
+            </h2>
+            <span class="bigtit">Don chicken menu</span>
+        </div>
+
+        <div class="menu-banner-wrapper">
+            <ul class="menu-banner">
+                <li>
+                    <a href="#">
+                        <div class="menu-banner-blur"></div>
+                        <span class="menu-banner-text">Oven chicken</span>
+                        <img src="img\ovenchicken.png" alt="ovenchicken">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="menu-banner-blur"></div>
+                        <span class="menu-banner-text">Fried chicken</span>
+                        <img src="img\friedchicken.png" alt="friedchicken">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="menu-banner-blur"></div>
+                        <span class="menu-banner-text">Korean food</span>
+                        <img src="img\koreanfood.png" alt="koreanfood">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="menu-banner-blur"></div>
+                        <span class="menu-banner-text">fries /salad</span>
+                        <img src="img\salad_fries.png" alt="salad_fries">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
     <section class="offers">
         <div class="offers__container">
             <div class="offers-container__category">
@@ -126,7 +177,52 @@
     <section class="reservation-delivery"></section>
     <section class="new-offers"></section>
     <section class="map"></section>
+    
     <footer>
+        <div class="footer-container">
+            <div class="footer-rows">
+                <ul class="footer-col">
+                    <h4><a href="#">Về chúng tôi</a></h4>
+                    <li><a href="#">Nhượng quyền</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Chính sách và quy định chung</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                </ul>
+
+                <ul class="footer-col">
+                    <h4><a href="#">Giao hàng và Đặt bàn</a></h4>
+                    <li><a href="#">Thực đơn</a></li>
+                    <li><a href="#">Cửa hàng</a></li>
+                </ul>
+
+                <ul class="footer-col">
+                    <h4><a href="#">Liên hệ</a></h4>
+                    <li class="not-a">Email: huong.ptx@donchicken.vn</li>
+                    <li class="not-a">Địa chỉ: 222 Phan Xích Long, phường 7, quận Phú Nhuận, TP.HCM </li>
+                </ul>
+
+                <ul class="footer-col">
+                    <h4><a href="#">Theo dõi chúng tôi</a></h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/donchickenhochiminh/"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/donchicken.hcm/?utm_source=ig_profile_share&igshid=8gagglh48pbe"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </ul>
+            </div>
+                <div class="footer-logo">
+                    <img src="img\logo.jpg" alt="logo">
+                    <div>Copyright © 2018 The Frenzy Team. All rights reserved.</div>
+                </div>
+
+                <div class="footer-copyright">
+                    <strong>Bản quyền 2019 Donchicken.vn – Premium Oven Chicken Công ty TNHH Công Nghệ Thực Phẩm Việt Hàn</strong>
+                    <div>Địa chỉ: 222 Phan Xích Long, phường 7, quận Phú Nhuận, TP.HCM</div>
+                    <div>Email: huong.ptx@donchicken.vn</div>
+                    <div>Mã số thuế / Mã số doanh nghiệp: 3603300922, Ngày cấp 16/04/2018, Sở KHĐTĐN</div>
+                </div>
+
+        </div>
     </footer>
     <script src="./assets/script.js"></script>
 </body>
