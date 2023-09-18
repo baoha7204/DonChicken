@@ -553,6 +553,115 @@ header {
 /* ----End Responsive---- */
 /* ---End Header--- */
 
+/* ---Banner--- */
+
+.banner {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+}
+
+.banner:hover .buttons {
+    width: 88%;
+    opacity: 1;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.list {
+    height: 100%;
+    display: flex;
+    width: max-content;
+    position: relative;
+    transition: 1s;
+}
+
+.list img {
+    width: 100%;
+    max-width: 89.5vi;
+    height: auto;
+    object-fit: cover;
+}
+
+.buttons {
+    position: absolute;
+    width: 80%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;  
+    opacity: 0;
+    transition: opacity 0.5s linear, width 0.5s linear;
+}
+
+.buttons button {
+    background-image: none;
+    background: transparent;
+    border: 3px solid #FF8C00;
+    color: #FF8C00;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0.4em 0.8em;
+    font-size: 2.5rem;
+    line-height: 1.2rem;
+}
+
+.buttons button:hover {
+    background-color: #FF8C00;
+    color: #fff;
+}
+
+
+.dots {
+    position: absolute;
+    bottom: 2%;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 11;
+}
+
+.dots li {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 50px;
+}
+
+.dots li.active {
+    width: 35px;
+    background-color: #FF8C00;
+}
+.dots li:hover{
+    background: #FF8C00;
+}
+
+@media (min-width: 320px) and (max-width: 479px){
+    .buttons button{
+        padding: 0.2em 0.4em;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 800px){
+    .buttons button{
+        padding: 0.45em 0.9em;
+        font-size: 1.9em;
+    }
+}
+/* ---End Banner--- */
+
 /* ---Scrollbar panel--- */
 .scrollbar{
     position: fixed;
@@ -991,8 +1100,6 @@ header {
 /* ---End Offers--- */
 
 /* ---New Offers--- */
-
-/* ---End New Offers--- */
 .new-offers .catergories .title{
     font-weight: normal;
 }
@@ -1028,6 +1135,59 @@ header {
         grid-auto-columns: 20%;
     }
 }
+/* ---End New Offers--- */
+
+/* ---Reservation Delivery--- */
+.reservation-delivery{
+    width: 100%;
+    height: 100%;
+}
+
+.reservation{
+    width: 92em;
+    height: 61em;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+/* ---Responsive--- */
+/* Mobile */
+@media (min-width: 320px) and (max-width: 479px){
+    .reservation-delivery{
+        width: 100%;
+        height: 100%;
+    }
+    .reservation{
+        width: 20em;
+        height: 20em;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 800px){
+    .reservation{
+        height: 38em;
+    }
+}
+
+/* ---End Responsive--- */
+
+/* ---End Reservation Delivery--- */
+
+/* ---MAP--- */
+.map{
+    width: 90vi;
+    height: 400px;
+    padding: 0;
+    margin: 2px;
+}
+
+.map iframe{
+    width: 99vi;
+    height: 100%;
+}
+/* ---End MAP--- */
+
 /* ----Footer---- */
 footer{
     width: 100%;
