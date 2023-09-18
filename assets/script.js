@@ -305,7 +305,7 @@ function myWebApp() {
     scrollingHeader();
     // Add click event for scrollbar
     addActiveScrollbar();
-    addButtonToOfferContainer();
+    // addButtonToOfferContainer();
     switchOfferItems();
     insertOfferItems(newOffers, '.new-offers');
 }
