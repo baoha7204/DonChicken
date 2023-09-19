@@ -262,15 +262,14 @@ function addActiveScrollbar() {
 /**
  * Add automatic slide horizontally to offers
  */
-var activeOffers = 0;
 function addAutoSlide(section){
-    if(window.matchMedia("(max-width: 768px)").matches){
+    if((window.matchMedia("(max-width: 768px)").matches && section == '.offers' ) || section == '.new-offers'){
         let slider = $(section + ' .offers-container__items .offer-items');
         let items = $$(section + ' .offers-container__items .offer-items .offer-item');
         var nextBtn = $(section + ' #next');
         var prevBtn = $(section + ' #prev');
+        let activeOffers = 0;
         let lengthItems = items.length - 1;
-        activeOffers = 0;
         slider.style.left = 0;
         nextBtn.onclick = function(){
             activeOffers = activeOffers + 1 <= lengthItems ? activeOffers + 1 : 0;
@@ -289,6 +288,59 @@ function addAutoSlide(section){
     }
 }
 
+function addAutoSlider(){
+    let sliderOuter = document.querySelector('.slider');
+    let slider = document.querySelector('.slider .list');
+    let items = document.querySelectorAll('.slider .list .image');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let dots = document.querySelectorAll('.slider .dots li');
+
+    let lengthItems = items.length - 1;
+    let active = 0;
+    sliderOuter.style.maxHeight = items[active].children[0].offsetHeight + 'px';
+    next.onclick = function(){
+        active = active + 1 <= lengthItems ? active + 1 : 0;
+        reloadSlider();
+    }
+
+    prev.onclick = function(){
+        active = active - 1 >= 0 ? active - 1 : lengthItems;
+        reloadSlider();
+    }
+
+    let refreshInterval = setInterval(()=> {next.click()}, 5000);
+    function reloadSlider(){
+        slider.style.left = -items[active].offsetLeft + 'px';
+        sliderOuter.style.maxHeight = items[active].children[0].offsetHeight + 'px';
+        let last_active_dot = document.querySelector('.slider .dots li.active');
+        last_active_dot.classList.remove('active');
+        dots[active].classList.add('active');
+
+        clearInterval(refreshInterval);
+        refreshInterval = setInterval(()=> {next.click()}, 5000);
+    }
+
+    dots.forEach((li, key) => {
+        li.addEventListener('click', ()=>{
+            active = key;
+            reloadSlider();
+        })
+    })
+}
+/**
+ * Prevent from scrolling when open header menu in sidebar
+ */
+function preventScrollingSidebar() {
+    const checkBoxNavbar = $('#checkbox_toggle');
+    checkBoxNavbar.onclick = () => {
+        if(checkBoxNavbar.checked){
+            document.body.classList.add('disable-scrolling');
+        } else{
+            document.body.classList.remove('disable-scrolling');
+        }
+    }
+}
 function myWebApp() {
     // fontAwesome
     insertFontAwesome();
@@ -301,13 +353,17 @@ function myWebApp() {
     window.onresize = () => {
         addActiveDropdownMobileItems();
     }
+    // Prevent from scrolling when open header menu in sidebar
+    preventScrollingSidebar();
     // Detect scrolling to turn into sticky header
     scrollingHeader();
     // Add click event for scrollbar
     addActiveScrollbar();
     // addButtonToOfferContainer();
+    addAutoSlider();
     switchOfferItems();
     insertOfferItems(newOffers, '.new-offers');
+    addAutoSlide('.new-offers');
 }
 
 myWebApp();

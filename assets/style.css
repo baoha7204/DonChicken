@@ -8,6 +8,7 @@ html {
 body {
     font-size: 13px;
     font-family: 'Open Sans';
+    overflow-x: hidden;
 }
 
 * {
@@ -46,7 +47,23 @@ a {
 li {
     list-style: none;
 }
+.main-content{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 1200px) {
+    .main-content{
+        max-width: 130rem;
+    }
+}
 
+.disable-scrolling{
+	height: 100%;
+	overflow: hidden;
+}
 /* ---End Base--- */
 
 /* ---Header--- */
@@ -72,7 +89,7 @@ header {
     box-shadow: 0 0 3px #666666;
     background-color: #ffffff;
     width: 100%;
-    z-index: 10000;
+    z-index: 1020;
     top: 0;
 }
 @keyframes fadeInDown{
@@ -376,7 +393,8 @@ header {
     .nav-hamburger:has(input:checked){
         background-color: #333;
         box-shadow: 0 0 0 5px #333;
-        position: sticky;
+        position: fixed;
+        z-index: 1030;
         top: 0;
         right: 0;
     }
@@ -556,11 +574,11 @@ header {
 /* ---Banner--- */
 
 .banner {
-    
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;  
+    padding: 0 5%;
 }
 
 .banner:hover .buttons {
@@ -572,6 +590,7 @@ header {
     width: 100%;
     overflow: hidden;
     position: relative;
+    transition: 1s;
 }
 .list {
     height: 100%;
@@ -583,7 +602,7 @@ header {
 
 .list img {
     width: 100%;
-    max-width: 89.5vi;
+    max-width: 90vw;
     height: auto;
     object-fit: cover;
 }
@@ -681,6 +700,7 @@ header {
 
 .scrollbar.active{
     right: 0;
+    z-index: 999;
 }
 
 .scrollbar.active .toggle-button i{
@@ -875,6 +895,7 @@ header {
     flex-direction: column;
     gap: 3rem;
     position: relative;
+    overflow: hidden;
 }
 
 .offers-container__category{
@@ -928,7 +949,6 @@ header {
 .offer-items{
     display: grid;
     grid-auto-flow: column;
-    overflow-x: hidden;
 }
 
 .offers .offer-items{
@@ -987,7 +1007,7 @@ header {
     color: #ffffff;
     background-color: darkorange;
     border: none;
-    width: 90%;
+    width: 100%;
     height: 5.5rem;
     font-size: 1.5rem;
     white-space: nowrap;
@@ -1010,41 +1030,15 @@ header {
 
 .offer-items{
     position: relative;
+    transition: left 500ms ease;
 }
 
-.buttons {
-    position: absolute;
+.offers .buttons, .new-offers .buttons{
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;  
-    opacity: 0;
-    transition: opacity 0.5s linear, width 0.5s linear;
 }
-
-.buttons button {
-    background: transparent;
-    border: 3px solid #FF8C00;
-    color: #FF8C00;
-    border-radius: 20px;
-    cursor: pointer;
-    margin: 0;
-    padding: 0.4em 0.8em;
-    font-size: 2.5rem;
-    line-height: 1.2rem;
-    z-index: 1;
-}
-
-.buttons button:hover {
-    background-color: #FF8C00;
-    color: #fff;
-}
-
-/*Keep this*/
 .offers .buttons button, .new-offers .buttons button{
     color: #a09481;
     background-color: #f6eada;
@@ -1106,8 +1100,8 @@ header {
 .new-offers .offer-items{
     grid-auto-columns: calc(100% / 6);
 }
-.new-offers .offers-container__items:hover .buttons {
-    width: 88%;
+.new-offers .offers-container__items:hover+.buttons, .new-offers .buttons:hover {
+    width: 100%;
     opacity: 1;
 }
 @media (max-width: 478px){
