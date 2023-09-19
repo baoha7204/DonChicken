@@ -399,6 +399,10 @@ header {
         right: 0;
     }
 
+    .header--scrolling .nav-hamburger:has(input:checked){
+        right: 100vw;
+    }
+
 	.nav-hamburger:has(input:checked)::before {
 		rotate: 45deg;
 		width: var(--x-width);
@@ -686,7 +690,7 @@ header {
     position: fixed;
     right: -11rem;
     top: 5%;
-    z-index: 999;
+    z-index: 10000;
     height: 90%;
     transition: var(--scroll-bar-timing);
 }
@@ -700,7 +704,6 @@ header {
 
 .scrollbar.active{
     right: 0;
-    z-index: 999;
 }
 
 .scrollbar.active .toggle-button i{
@@ -711,7 +714,7 @@ header {
     left: -4.5rem;
     position: absolute;
     transition: var(--scroll-bar-timing);
-    z-index: -1;
+    z-index: 9999;
 }
 
 .toggle-button{
@@ -747,6 +750,7 @@ header {
     background-color: #e7e7e7;
     width: 11rem;
     padding: .5rem;
+    z-index: 10000;
 }
 
 .scrollbar-container__panel .panel{
